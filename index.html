@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Skillspace Sync Timeweb — внутреннее приложение школы для переноса ведомостей баллов из Skillspace в Google-таблицу.">
+  <link rel="canonical" href="https://oliverhope.github.io/skillspace-sync/">
+  <title>Skillspace Sync Timeweb</title>
+  <style>
+    :root { color-scheme: light; --ink: #17233b; --muted: #53627a; --blue: #2447b5; --line: #dbe3ed; --paper: #f7f9fc; }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font: 17px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+    a { color: var(--blue); text-underline-offset: .2em; }
+    a:hover { text-decoration-thickness: 2px; }
+    a:focus-visible { outline: 3px solid #e6ac27; outline-offset: 5px; border-radius: 3px; }
+    .skip { position: absolute; top: -100px; left: 20px; padding: 10px 16px; background: white; }
+    .skip:focus { top: 12px; z-index: 2; }
+    .shell { width: min(960px, calc(100% - 48px)); margin: auto; }
+    header { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 28px 0; border-bottom: 1px solid var(--line); }
+    .brand { display: flex; align-items: center; gap: 12px; color: var(--ink); text-decoration: none; font-size: 16px; font-weight: 700; line-height: 1.3; }
+    .mark { display: grid; place-items: center; width: 36px; height: 36px; background: var(--blue); color: white; border-radius: 10px; font-size: 21px; }
+    .brand small { display: block; color: var(--muted); font-size: 12px; font-weight: 500; letter-spacing: .035em; }
+    nav { display: flex; flex-wrap: wrap; gap: 10px 22px; font-size: 14px; }
+    nav a { color: var(--muted); text-decoration: none; }
+    nav a[aria-current] { color: var(--blue); }
+    main { padding: 58px 0 64px; }
+    .eyebrow { margin: 0 0 20px; color: var(--blue); font-size: 12px; font-weight: 700; letter-spacing: .11em; text-transform: uppercase; }
+    h1 { max-width: 760px; margin: 0 0 24px; font-size: clamp(36px, 6vw, 61px); line-height: 1.08; letter-spacing: -.04em; font-weight: 650; }
+    .lead { max-width: 690px; margin: 0 0 30px; color: var(--muted); font-size: 20px; line-height: 1.6; }
+    .notice { padding: 16px 20px; margin: 0 0 42px; border: 1px solid #cbd7ed; border-radius: 10px; background: #edf2ff; font-size: 15px; }
+    .notice strong { display: block; margin-bottom: 2px; color: var(--blue); }
+    h2 { margin: 0 0 22px; font-size: 24px; letter-spacing: -.02em; }
+    .flow { list-style: none; padding: 0; margin: 0 0 38px; display: grid; grid-template-columns: repeat(3, 1fr); border: 1px solid var(--line); border-radius: 12px; background: white; overflow: hidden; }
+    .flow li { padding: 24px; }
+    .flow li + li { border-left: 1px solid var(--line); }
+    .number { color: var(--blue); font-size: 13px; font-weight: 700; }
+    .flow h3 { margin: 10px 0 8px; font-size: 18px; line-height: 1.35; }
+    .flow p { margin: 0; color: var(--muted); font-size: 15px; }
+    .details { max-width: 740px; }
+    .details p { margin: 0 0 16px; }
+    footer { padding: 24px 0 32px; border-top: 1px solid var(--line); display: flex; flex-wrap: wrap; gap: 10px 24px; justify-content: space-between; color: var(--muted); font-size: 13px; }
+    @media (max-width: 680px) { .shell { width: calc(100% - 32px); } header { align-items: flex-start; flex-direction: column; gap: 20px; } main { padding-top: 36px; } .lead { font-size: 18px; } .flow { grid-template-columns: 1fr; } .flow li + li { border-left: 0; border-top: 1px solid var(--line); } }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#content">Перейти к содержанию</a>
+  <div class="shell">
+    <header>
+      <a class="brand" href="./" aria-label="Skillspace Sync Timeweb — главная"><span class="mark" aria-hidden="true">S</span><span>Skillspace Sync<small>Timeweb</small></span></a>
+      <nav aria-label="Основная навигация"><a href="./" aria-current="page">О приложении</a><a href="./privacy.html">Конфиденциальность</a><a href="./terms.html">Условия</a></nav>
+    </header>
+    <main id="content">
+      <p class="eyebrow">Внутреннее приложение школы</p>
+      <h1>Ведомость баллов —<br>в Google-таблице.</h1>
+      <p class="lead">Skillspace Sync Timeweb предназначено для регулярного переноса результатов обучения из Skillspace в отдельную Google-таблицу владельца школы.</p>
+      <aside class="notice" aria-label="Состояние приложения"><strong>Подготовка к запуску</strong>Почасовое обновление пока отключено. Эти страницы описывают назначение приложения и правила обработки данных.</aside>
+      <section aria-labelledby="flow-title">
+        <h2 id="flow-title">Как устроен перенос</h2>
+        <ol class="flow">
+          <li><span class="number" aria-hidden="true">01</span><h3>Ведомость Skillspace</h3><p>Приложение запрашивает штатную ведомость через кабинет школы.</p></li>
+          <li><span class="number" aria-hidden="true">02</span><h3>Письмо с выгрузкой</h3><p>Через Gmail получает письмо о готовой ведомости и проверяет его подлинность.</p></li>
+          <li><span class="number" aria-hidden="true">03</span><h3>Листы по курсам</h3><p>Переносит исходные статусы и баллы на соответствующие листы Google-таблицы.</p></li>
+        </ol>
+      </section>
+      <div class="details">
+        <p>Приложение используется владельцем школы для работы с результатами своих учеников. Оно не предлагает публичную регистрацию или платную подписку.</p>
+        <p>Gmail подключается с разрешением только на чтение. Приложение не отправляет письма и не изменяет почту. Подробности о доступе, хранении и удалении данных описаны в <a href="./privacy.html">политике конфиденциальности</a>.</p>
+      </div>
+    </main>
+    <footer><span>Skillspace Sync Timeweb</span><span>Контакт владельца: <a href="mailto:seazzon1@gmail.com">seazzon1@gmail.com</a></span></footer>
+  </div>
+</body>
+</html>
